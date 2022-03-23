@@ -1,6 +1,7 @@
-from PyQt5 import QtCore, QtGui, QtWidgets, QtWebEngineWidgets
+from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 # from PyQt5 import QtWebEngineWidgets
-from mainwindow import *
+from mainwindow import Ui_Browser, icons_rc
 from sys import argv, exit
 from re import match, findall
 
@@ -16,7 +17,7 @@ class Browser(QtWidgets.QMainWindow):
         self.ui.toolButton_search.clicked.connect(self.search)
         self.ui.toolButton_refresh.clicked.connect(self.refresh)
 
-        self.webview = QtWebEngineWidgets.QWebEngineView()
+        self.webview = QWebEngineView()
         self.ui.gridLayout.addWidget(self.webview, 1, 0, 1, 7)
 
         self.ui.toolButton_back.setToolTip("Назад")
