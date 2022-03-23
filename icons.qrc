@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="Icon">
+    <file>free-icon-left-arrow-271236.png</file>
+    <file>free-icon-up-arrow-271238.png</file>
+    <file>free-icon-refresh-271224.png</file>
+    <file>free-icon-cancel-271203.png</file>
+    <file>free-icon-left-arrow-271218.png</file>
+  </qresource>
+</RCC>
