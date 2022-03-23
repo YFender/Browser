@@ -19,6 +19,14 @@ class Browser(QtWidgets.QMainWindow):
         self.webview = QtWebEngineWidgets.QWebEngineView()
         self.ui.gridLayout.addWidget(self.webview, 1, 0, 1, 7)
 
+        self.ui.toolButton_back.setToolTip("Назад")
+        self.ui.toolButton_refresh.setToolTip("Обновить страницу")
+        self.ui.toolButton_search.setToolTip("Поиск")
+        self.ui.toolButton_home.setToolTip("Домой")
+
+        self.webview.urlChanged.connect(
+            lambda: self.ui.lineEdit.setText(f"{self.webview.url().toString()}"))
+
         self.home()
 
     def back(self):
@@ -28,28 +36,27 @@ class Browser(QtWidgets.QMainWindow):
         self.webview.reload()
 
     def home(self):
-        home_page = QtCore.QUrl("https://yandex.ru/")
+        home_page = QtCore.QUrl("https://google.com")
         self.webview.load(home_page)
 
     def search(self):
+        # print(self.webview.page().url())
         search_text = self.ui.lineEdit.text()
         if search_text != "":
+            print(match(
+                '^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?', search_text))
             if not match('^((ftp|http|https):\/\/)?(www\.)?([A-Za-zА-Яа-я0-9]{1}[A-Za-zА-Яа-я0-9\-]*\.?)*\.{1}[A-Za-zА-Яа-я0-9-]{2,8}(\/([\w#!:.?+=&%@!\-\/])*)?', search_text):
                 search_text = QtCore.QUrl(
-                    "http://yandex.ru/search/?text=" + search_text)
+                    "https://google.com/search?q=" + search_text)
                 self.webview.load(search_text)
+                # print(self.webview.page().url())
             else:
                 if not search_text.startswith("http"):
-                    try:
-                        search_text = QtCore.QUrl("http://" + search_text)
-                        self.webview.load(search_text)
-                        self.ui.lineEdit.setText(
-                            "http://" + self.ui.lineEdit.text())
-                    except:
-                        search_text = QtCore.QUrl("https://" + search_text)
-                        self.webview.load(search_text)
-                        self.ui.lineEdit.setText(
-                            "https://" + self.ui.lineEdit.text())
+                    search_text = QtCore.QUrl("http://" + search_text)
+                    self.webview.load(search_text)
+                    # self.ui.lineEdit.setText(
+                    #     "http://" + self.ui.lineEdit.text())
+                    # print(self.webview.page().url())
 
 
 if __name__ == "__main__":
