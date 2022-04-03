@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage
 # from PyQt5 import QtWebEngineWidgets
 from mainwindow import Ui_Browser, icons_rc
 from sys import argv, exit
@@ -19,16 +19,34 @@ class Browser(QtWidgets.QMainWindow):
         self.ui.toolButton_home.clicked.connect(self.home)
         self.ui.toolButton_search.clicked.connect(self.search)
         self.ui.toolButton_refresh.clicked.connect(self.webview.reload)
+        self.ui.toolButton_forward.clicked.connect(self.webview.forward)
 
         self.ui.toolButton_back.setToolTip("Назад")
         self.ui.toolButton_refresh.setToolTip("Обновить страницу")
         self.ui.toolButton_search.setToolTip("Поиск")
         self.ui.toolButton_home.setToolTip("Домой")
 
-        self.webview.urlChanged.connect(
-            lambda: self.ui.lineEdit.setText(f"{self.webview.url().toString()}"))
+        self.ui.toolButton_forward.hide()
+        self.ui.toolButton_back.hide()
+
+
+        self.webview.urlChanged.connect(self.check)
+
 
         self.home()
+
+    def check(self):
+        self.ui.lineEdit.setText(f"{self.webview.url().toString()}")
+
+        if self.webview.page().action(QWebEnginePage.Back).isEnabled():
+            self.ui.toolButton_back.show()
+        else:
+            self.ui.toolButton_back.hide()
+
+        if self.webview.page().action(QWebEnginePage.Forward).isEnabled():
+            self.ui.toolButton_forward.show()
+        else:
+            self.ui.toolButton_forward.hide()
 
     def home(self):
         home_page = QtCore.QUrl("https://google.com")

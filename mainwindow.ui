@@ -19,80 +19,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QToolButton" name="toolButton_back">
-      <property name="minimumSize">
-       <size>
-        <width>31</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>...</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/Icon/free-icon-left-arrow-271218.png</normaloff>:/Icon/free-icon-left-arrow-271218.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QToolButton" name="toolButton_refresh">
-      <property name="minimumSize">
-       <size>
-        <width>31</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>...</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/Icon/free-icon-refresh-271224.png</normaloff>:/Icon/free-icon-refresh-271224.png</iconset>
-      </property>
-      <property name="shortcut">
-       <string>F5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QToolButton" name="toolButton_home">
-      <property name="minimumSize">
-       <size>
-        <width>31</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>...</string>
-      </property>
-      <property name="icon">
-       <iconset resource="icons.qrc">
-        <normaloff>:/Icon/free-icon-up-arrow-271238.png</normaloff>:/Icon/free-icon-up-arrow-271238.png</iconset>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>31</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="placeholderText">
-       <string>Поиск</string>
-      </property>
-      <property name="cursorMoveStyle">
-       <enum>Qt::LogicalMoveStyle</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
+    <item row="0" column="5">
      <widget class="QToolButton" name="toolButton_search">
       <property name="minimumSize">
        <size>
@@ -112,7 +39,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="5">
+    <item row="1" column="0" colspan="6">
      <widget class="QFrame" name="frame">
       <property name="autoFillBackground">
        <bool>false</bool>
@@ -127,6 +54,106 @@
        <enum>QFrame::Raised</enum>
       </property>
      </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>31</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="placeholderText">
+       <string>Поиск</string>
+      </property>
+      <property name="cursorMoveStyle">
+       <enum>Qt::LogicalMoveStyle</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="4">
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QToolButton" name="toolButton_back">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/Icon/free-icon-left-arrow-271218.png</normaloff>:/Icon/free-icon-left-arrow-271218.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_forward">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/Icon/free-icon-right-arrow-271218.png</normaloff>:/Icon/free-icon-right-arrow-271218.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_refresh">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/Icon/free-icon-refresh-271224.png</normaloff>:/Icon/free-icon-refresh-271224.png</iconset>
+        </property>
+        <property name="shortcut">
+         <string>F5</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton_home">
+        <property name="minimumSize">
+         <size>
+          <width>31</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="icons.qrc">
+          <normaloff>:/Icon/free-icon-up-arrow-271238.png</normaloff>:/Icon/free-icon-up-arrow-271238.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
